@@ -8,8 +8,9 @@ class App extends React.Component{
   constructor(props){
     super()
     this.showData = this.showData.bind(this)
-    this.openCartHandler = this.openCartHandler.bind(this)
-    this.closeCartHandler = this.closeCartHandler.bind(this)
+    // this.openCartHandler = this.openCartHandler.bind(this)
+    // this.closeCartHandler = this.closeCartHandler.bind(this)
+    this.cartHandler = this.cartHandler.bind(this)
     this.state = {
       isLoaded:false,
       data:[]
@@ -35,12 +36,15 @@ class App extends React.Component{
   showData(){
     console.log(this.state.data)
   }
-  openCartHandler(){
-    this.setState({openCart:true})
-  }
-  closeCartHandler(){
-    this.setState({openCart:false})
-    
+  // openCartHandler(){
+  //   this.setState({openCart:true})
+  // }
+  // closeCartHandler(){
+  //   this.setState({openCart:false})
+
+  // }
+  cartHandler(){
+    this.setState( {openCart: !this.state.openCart})
   }
   render(){
     const ContentList = this.state.data.map(data =>(
@@ -50,14 +54,14 @@ class App extends React.Component{
     ))
     return(
       <div>
-        {this.state.openCart && <Cart cartHandler={this.closeCartHandler}/>}
+        {this.state.openCart && <Cart cartHandler={this.cartHandler}/>}
         <button onClick={this.showData}>show data</button>
         {this.state.isLoaded ? <h1>Ready</h1> :<h1>Loading</h1>}
         {/* <div className="col s12 m2"> */}
         
         <div className='cardsContent'>
         
-          <Navbar cartHandler={this.openCartHandler}/>
+          <Navbar cartHandler={this.cartHandler}/>
           
           {ContentList}
           
