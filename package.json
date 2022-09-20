@@ -8,6 +8,7 @@
     "@testing-library/user-event": "^13.5.0",
     "axios": "^0.27.2",
     "foundation": "^4.2.1-1",
+    "git": "^0.1.5",
     "materialize-css": "^1.0.0-rc.2",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
