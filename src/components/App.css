@@ -1,0 +1,13 @@
+.cardsContent{
+  display:flex;
+  width: 90%;
+  flex-direction:row;
+  flex-wrap:wrap; 
+  justify-content: center;
+  align-items: stretch;
+  background-color: #ffffff;
+  margin-left: 3%;
+  border: 3px solid #b8d4d1 ;
+  border-radius: 30px;
+  
+  }
