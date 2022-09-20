@@ -40,6 +40,7 @@ class App extends React.Component{
   }
   closeCartHandler(){
     this.setState({openCart:false})
+    
   }
   render(){
     const ContentList = this.state.data.map(data =>(
