@@ -4,8 +4,8 @@ import Cart from './Cart';
 import Content from './Content';
 import Navbar from './Navbar';
 
-class App extends React.Component{
-  constructor(props){
+class App extends React.Component {
+  constructor(props) {
     super()
     this.showData = this.showData.bind(this)
     // this.openCartHandler = this.openCartHandler.bind(this)
@@ -13,29 +13,29 @@ class App extends React.Component{
     this.cartHandler = this.cartHandler.bind(this)
     this.addCartItems = this.addCartItems.bind(this)
     this.state = {
-      isLoaded:false,
-      data:[],
-      cartItems:[]
+      isLoaded: false,
+      data: [],
+      cartItems: []
     }
-    
+
   }
-  get_data(){
+  get_data() {
     fetch('https://fakestoreapi.com/products')
-      .then(res=>res.json())
-      .then((result)=>{
+      .then(res => res.json())
+      .then((result) => {
         this.setState({
           isLoaded: true,
-          data:result,
+          data: result,
           cartStatus: false
         })
       })
-    
+
   }
-  componentDidMount(){
+  componentDidMount() {
     this.get_data()
-        
+
   }
-  showData(){
+  showData() {
     console.log(this.state.data)
   }
   // openCartHandler(){
@@ -45,36 +45,40 @@ class App extends React.Component{
   //   this.setState({openCart:false})
 
   // }
-  cartHandler(){
-    this.setState( {openCart: !this.state.openCart})
+  cartHandler() {
+    this.setState({ openCart: !this.state.openCart })
   }
-  addCartItems(){
-    console.log('Cart data')
-    
+  addCartItems(value) {
+    this.setState(() => {
+      return { cartItems: [...this.state.cartItems, value] }
+    })
+    console.log(this.state.cartItems)
+
+
   }
-  render(){
-    const ContentList = this.state.data.map(data =>(
+  render() {
+    const ContentList = this.state.data.map(data => (
       <Content
-      key = {data.id}
-      items={data}
-      addCartItems={this.addCartItems} />
+        key={data.id}
+        items={data}
+        addCartItems={this.addCartItems} />
     ))
-    return(
+    return (
       <div>
-        {this.state.openCart && <Cart cartHandler={this.cartHandler}/>}
+        {this.state.openCart && <Cart cartHandler={this.cartHandler} cartItems={this.state.cartItems} />}
         <button onClick={this.showData}>show data</button>
-        {this.state.isLoaded ? <h1>Ready</h1> :<h1>Loading</h1>}
+        {this.state.isLoaded ? <h1>Ready</h1> : <h1>Loading</h1>}
         {/* <div className="col s12 m2"> */}
-        
+
         <div className='cardsContent'>
-        
-          <Navbar cartHandler={this.cartHandler}/>
-          
+
+          <Navbar cartHandler={this.cartHandler} />
+
           {ContentList}
-          
+
         </div>
       </div>
-      )
+    )
   }
 }
 export default App;
