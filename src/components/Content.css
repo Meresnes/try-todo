@@ -50,11 +50,18 @@
     padding: 0 !important; 
     margin: 20px auto;
     
+    
+}
+.card-action>button{
+    margin-right: 10px;
 }
 .card-action>button>p{
-    font-size: 20px;
+    font-size: 17px;
     color:black;  
     margin: 5px auto;
+}
+.cart-btn{
+    background-color: #9cc6c5 !important;
 }
 .moreInfoText{
     font-size: 15px;

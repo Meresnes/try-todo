@@ -46,6 +46,9 @@ class Content extends React.Component{
             <div className="card-action small">
                 <button className="lighten-3 text-darken-2 hoverable flow-text"
                 onClick={this.showMoreHandler}><p>Show more details</p></button>
+
+                 <button className="cart-btn lighten-3 text-darken-2 hoverable flow-text"
+                onClick={this.props.addCartItems(this.props.items.id)}><p>Add to cart</p></button>
                 
             </div>
         </div>

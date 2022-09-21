@@ -11,10 +11,13 @@ class App extends React.Component{
     // this.openCartHandler = this.openCartHandler.bind(this)
     // this.closeCartHandler = this.closeCartHandler.bind(this)
     this.cartHandler = this.cartHandler.bind(this)
+    this.addCartItems = this.addCartItems.bind(this)
     this.state = {
       isLoaded:false,
-      data:[]
+      data:[],
+      cartItems:[]
     }
+    
   }
   get_data(){
     fetch('https://fakestoreapi.com/products')
@@ -30,8 +33,7 @@ class App extends React.Component{
   }
   componentDidMount(){
     this.get_data()
-    console.log(this.props)
-    
+        
   }
   showData(){
     console.log(this.state.data)
@@ -46,11 +48,16 @@ class App extends React.Component{
   cartHandler(){
     this.setState( {openCart: !this.state.openCart})
   }
+  addCartItems(){
+    console.log('Cart data')
+    
+  }
   render(){
     const ContentList = this.state.data.map(data =>(
       <Content
       key = {data.id}
-      items={data} />
+      items={data}
+      addCartItems={this.addCartItems} />
     ))
     return(
       <div>
