@@ -17,10 +17,18 @@
 
 }
 
+.cart-header>h3 {
+    padding-left: 30px;
+
+    font-size: 40px;
+    font-weight: 600;
+}
+
 .cart-right-menu {
     background-color: white;
-    width: 35%;
+    width: 45%;
     height: 100%;
+    overflow-y: scroll;
 
 }
 

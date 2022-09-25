@@ -20,12 +20,12 @@ class App extends React.Component {
 
   }
   get_data() {
-    fetch('https://fakestoreapi.com/products')
+    fetch('https://api.escuelajs.co/api/v1/products')
       .then(res => res.json())
       .then((result) => {
         this.setState({
           isLoaded: true,
-          data: result,
+          data: [...result].sort(),
           cartStatus: false
         })
       })
@@ -36,7 +36,7 @@ class App extends React.Component {
 
   }
   showData() {
-    console.log(this.state.data)
+    console.log(this.state.data[1])
   }
   // openCartHandler(){
   //   this.setState({openCart:true})

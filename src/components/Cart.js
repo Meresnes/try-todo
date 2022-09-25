@@ -1,10 +1,13 @@
 import { Component } from "react";
 import "./Cart.css"
-import Content from "./Content";
+import CartItems from "./CartItems";
 export default class Cart extends Component {
 
     render() {
         //NEED ADD COMPONENT FOR CART LIST
+        const cartList = this.props.cartItems.map(data => (
+            <CartItems items={data} />
+        ))
         return (
             <div className="wrapper">
                 <div className="catr-bg"></div>
@@ -21,7 +24,7 @@ export default class Cart extends Component {
                         </svg>
                     </div>
                     <div className="cart-body">
-
+                        {cartList}
                     </div>
                     <div className="cart-footer">
                         <button>Place an order</button>

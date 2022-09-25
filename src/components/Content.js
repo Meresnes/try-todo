@@ -38,12 +38,12 @@ class Content extends Component {
                 </div>
                 <div className="card-image">
 
-                    <img src={this.props.items.image} alt={this.props.items.title} />
+                    <img src={this.props.items.images[0]} alt={this.props.items.title} />
                 </div>
                 <div className="card-content">
-                    <p>{this.props.items.price}$ ★{this.props.items.rating.rate}</p>
+                    <p>{this.props.items.price}$ </p>
                 </div>
-                <div className="card-action small">
+                <div className="card-action">
                     <button className="lighten-3 text-darken-2 hoverable flow-text"
                         onClick={this.showMoreHandler}><p>Show more details</p></button>
 
