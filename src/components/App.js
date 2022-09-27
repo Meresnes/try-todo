@@ -12,13 +12,16 @@ class App extends React.Component {
     // this.closeCartHandler = this.closeCartHandler.bind(this)
     this.cartHandler = this.cartHandler.bind(this)
     this.addCartItems = this.addCartItems.bind(this)
+    this.deleteCartTtems = this.deleteCartTtems.bind(this)
     this.state = {
       isLoaded: false,
       data: [],
-      cartItems: []
+      cartItems: [],
+      cartStatus: false
     }
 
   }
+
   get_data() {
     fetch('https://api.escuelajs.co/api/v1/products')
       .then(res => res.json())
@@ -26,7 +29,7 @@ class App extends React.Component {
         this.setState({
           isLoaded: true,
           data: [...result].sort(),
-          cartStatus: false
+
         })
       })
 
@@ -48,34 +51,44 @@ class App extends React.Component {
   cartHandler() {
     this.setState({ openCart: !this.state.openCart })
   }
+
   addCartItems(value) {
     this.setState(() => {
       return { cartItems: [...this.state.cartItems, value] }
     })
-    console.log(this.state.cartItems)
 
+  }
+  deleteCartTtems(value) {
+    const newItems = []
+    this.state.cartItems.forEach(item => {
+      if (item.id !== value) {
+        newItems.push(item)
+      }
+    })
 
+    this.setState(() => ({
+      cartItems: [...newItems]
+    }))
   }
   render() {
     const ContentList = this.state.data.map(data => (
       <Content
         key={data.id}
         items={data}
-        addCartItems={this.addCartItems} />
+        addCartItems={this.addCartItems}
+      />
     ))
     return (
       <div>
-        {this.state.openCart && <Cart cartHandler={this.cartHandler} cartItems={this.state.cartItems} />}
+        {this.state.openCart ? document.body.style.overflowY = "hidden" : document.body.style.overflowY = "scroll"}
+        {this.state.openCart && <Cart key={''} cartHandler={this.cartHandler} cartItems={this.state.cartItems} deleteCartTtems={this.deleteCartTtems} />}
         <button onClick={this.showData}>show data</button>
         {this.state.isLoaded ? <h1>Ready</h1> : <h1>Loading</h1>}
         {/* <div className="col s12 m2"> */}
 
-        <div className='cardsContent'>
-
-          <Navbar cartHandler={this.cartHandler} />
-
+        <div className='cardsContent' >
+          <Navbar cartHandler={this.cartHandler} cartItems={this.state.cartItems} />
           {ContentList}
-
         </div>
       </div>
     )

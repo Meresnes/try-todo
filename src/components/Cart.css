@@ -2,33 +2,26 @@
     display: flex;
     width: 100%;
     height: 100%;
-
     position: absolute;
     z-index: 9;
-
-
-
 }
 
 .catr-bg {
     background-color: black;
     opacity: 0.8;
     width: 100%;
-
 }
 
 .cart-header>h3 {
     padding-left: 30px;
-
     font-size: 40px;
     font-weight: 600;
 }
 
 .cart-right-menu {
     background-color: white;
-    width: 45%;
-    height: 100%;
-    overflow-y: scroll;
+    width: 35%;
+    overflow-y: scroll !important;
 
 }
 
@@ -49,33 +42,34 @@
 
 }
 
+
+
 .cart-header>h3,
 svg {
     margin: 0;
+
 }
 
 .cart-footer {
     width: 100%;
+    display: flex;
+
 }
 
 .cart-footer>button {
-    background-color: #9cc6c5;
-    width: 100%;
+    cursor: pointer;
+    background-color: #D1EBCC;
+    width: 70%;
     border: 1px solid gray;
     border-radius: 20px;
     height: 40px;
-    margin-bottom: 40px;
-    font-family: 'Inter';
     font-style: normal;
     font-weight: 600;
     font-size: 16px;
     line-height: 19px;
     text-align: center;
-    color: #efb695;
+    color: #8F9F9D;
     overflow: hidden;
+    margin: 35px auto 35px;
 
-}
-
-.body {
-    overflow: hidden !important;
 }
