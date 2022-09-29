@@ -4,9 +4,9 @@ import CartItems from "./CartItems";
 export default class Cart extends Component {
 
     render() {
-        //NEED ADD COMPONENT FOR CART LIST
+
         const cartList = this.props.cartItems.map(data => (
-            <CartItems items={data} deleteCartTtems={this.props.deleteCartTtems} />
+            <CartItems items={data} deleteCartItems={this.props.deleteCartItems} />
         ))
         return (
             <div className="wrapper">

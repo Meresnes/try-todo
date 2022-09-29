@@ -12,7 +12,7 @@ class App extends React.Component {
     // this.closeCartHandler = this.closeCartHandler.bind(this)
     this.cartHandler = this.cartHandler.bind(this)
     this.addCartItems = this.addCartItems.bind(this)
-    this.deleteCartTtems = this.deleteCartTtems.bind(this)
+    this.deleteCartItems = this.deleteCartItems.bind(this)
     this.state = {
       isLoaded: false,
       data: [],
@@ -53,12 +53,12 @@ class App extends React.Component {
   }
 
   addCartItems(value) {
-    this.setState(() => {
-      return { cartItems: [...this.state.cartItems, value] }
-    })
+    this.setState(() => ({
+      cartItems: [...this.state.cartItems, value]
+    }))
 
   }
-  deleteCartTtems(value) {
+  deleteCartItems(value) {
     const newItems = []
     this.state.cartItems.forEach(item => {
       if (item.id !== value) {
@@ -76,12 +76,13 @@ class App extends React.Component {
         key={data.id}
         items={data}
         addCartItems={this.addCartItems}
+        deleteCartItems={this.deleteCartItems}
       />
     ))
     return (
       <div>
         {this.state.openCart ? document.body.style.overflowY = "hidden" : document.body.style.overflowY = "scroll"}
-        {this.state.openCart && <Cart key={''} cartHandler={this.cartHandler} cartItems={this.state.cartItems} deleteCartTtems={this.deleteCartTtems} />}
+        {this.state.openCart && <Cart key={''} cartHandler={this.cartHandler} cartItems={this.state.cartItems} deleteCartItems={this.deleteCartItems} />}
         <button onClick={this.showData}>show data</button>
         {this.state.isLoaded ? <h1>Ready</h1> : <h1>Loading</h1>}
         {/* <div className="col s12 m2"> */}
