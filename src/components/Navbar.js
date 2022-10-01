@@ -10,6 +10,7 @@ export default function Navbar(props) {
             itemsSumm += item.price
         })
         setSumm(itemsSumm)
+
     }, [props.cartItems])
     return (
         <div className="navbar-content">

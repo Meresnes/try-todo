@@ -7,40 +7,37 @@
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    width: 210px;
-    height: 340px;
+    width: 310px;
+    height: 410px;
     overflow: hidden;
-
-
 }
 
 .card-image>img {
     position: absolute;
-
     margin: auto;
     align-items: center;
     z-index: 4;
-
-
+    width: auto;
 }
 
 .card-image {
-    width: 130px;
-    height: 110px;
+    width: 150px;
+    height: 150px;
     margin: 0 auto;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .flow-text {
     font-size: 18px;
 }
 
-
 .card-body>button {
     border-radius: 8px;
     opacity: 0.6;
     background-color: rgb(177, 168, 168);
-
-
 }
 
 .card-content {
@@ -103,6 +100,13 @@
     box-shadow: 4px 5px 10px 1px gray;
 
 }
+
+.delete-icon {
+    cursor: pointer;
+    border-radius: 10px;
+    border: 1px solid #d3d3d3;
+}
+
 
 
 

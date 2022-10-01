@@ -7,9 +7,11 @@
 }
 
 .catr-bg {
+    position: absolute;
     background-color: black;
     opacity: 0.8;
     width: 100%;
+    height: 150%;
 }
 
 .cart-header>h3 {
@@ -19,7 +21,12 @@
 }
 
 .cart-right-menu {
+    margin: 0 5px 0 0;
+    border-radius: 30px 0 0 30px;
     background-color: white;
+    position: absolute;
+    right: 0;
+    height: 100%;
     width: 35%;
     overflow-y: scroll !important;
 
@@ -31,6 +38,18 @@
     justify-content: space-between;
     align-items: center;
 
+}
+
+.close-btn {
+    border-radius: 10px;
+    transition: box-shadow 0.4s;
+    border: 1px solid #d3d3d3;
+    margin-right: 10px;
+}
+
+.close-btn:hover {
+    cursor: pointer;
+    box-shadow: 4px 5px 10px 1px gray;
 }
 
 .cart-header {
