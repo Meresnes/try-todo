@@ -40,9 +40,9 @@ class App extends React.Component {
     axios.get('https://6336fe665327df4c43cdefe7.mockapi.io/data').then((response) => {
       this.setState({
         isLoaded: true,
-        data: [...response.data]
+        data: [...response.data[0].products]
       })
-      //console.log(response.data)
+      // console.log(response.data[0].products)
     })
       .catch(function (error) {
         // handle error
@@ -59,25 +59,25 @@ class App extends React.Component {
   showData() {
     console.log(this.state.data)
 
-    axios.post('https://6336fe665327df4c43cdefe7.mockapi.io/products', this.state.data.map((item) => ({
-      id: item.id,
-      title: item.title,
-      description: item.description,
-      price: item.price,
-      discountPercentage: item.discountPercentage,
-      rating: item.rating,
-      stock: item.stock,
-      brand: item.brand,
-      category: item.category,
-      thumbnail: item.thumbnail,
-      images: item.images
-    })))
-      .then(function (response) {
-        console.log(response);
-      })
-      .catch(function (error) {
-        console.log(error);
-      });
+    // axios.post('https://6336fe665327df4c43cdefe7.mockapi.io/products', this.state.data.map((item) => ({
+    //   id: item.id,
+    //   title: item.title,
+    //   description: item.description,
+    //   price: item.price,
+    //   discountPercentage: item.discountPercentage,
+    //   rating: item.rating,
+    //   stock: item.stock,
+    //   brand: item.brand,
+    //   category: item.category,
+    //   thumbnail: item.thumbnail,
+    //   images: item.images
+    // })))
+    //   .then(function (response) {
+    //     console.log(response);
+    //   })
+    //   .catch(function (error) {
+    //     console.log(error);
+    //   });
   }
   // openCartHandler(){
   //   this.setState({openCart:true})
