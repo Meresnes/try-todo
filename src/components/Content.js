@@ -15,7 +15,9 @@ function Content(props) {
         //this.setState({ cartAdded: !this.state.cartAdded })
     }
     const addFavoriteStatus = () => {
-        console.log('Favorite!!')
+        const isInFavorites = (props.favoriteItems.includes(props.items))
+        isInFavorites ? props.deleteFavoriteItems(props.items.id) : props.addFavoriteItems(props.items)
+        console.log(props.favoriteItems)
     }
 
     return (
@@ -33,8 +35,8 @@ function Content(props) {
         // <div className="col s12 m3">
         <div className="card center hoverable">
             <div className="card-favorite">
-                <img onClick={addFavoriteStatus} src="/favorite.svg" alt="favorite" />
-
+                <img className={`${props.favoriteItems.includes(props.items) ? 'hide' : ''}`} onClick={addFavoriteStatus} src="/favorite.svg" alt="favorite" />
+                <img className={`${props.favoriteItems.includes(props.items) ? '' : 'hide'}`} onClick={addFavoriteStatus} src="/favoriteLiked.svg" alt="favorite" />
             </div>
             <div className="card-image">
 

@@ -31,7 +31,7 @@ export default function Navbar(props) {
                 <b>{cartSumm}$</b>
                 <Link to='/favorite'>
                     <img className="animated-logo"
-                        src="./favorite.svg"
+                        src="./favoriteLiked.svg"
                         style={{ cursor: "pointer" }}
                         width={40}
                         height={40}

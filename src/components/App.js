@@ -5,6 +5,8 @@ import Content from './Content';
 import Navbar from './Navbar';
 import axios from 'axios';
 import { Routes, Route } from 'react-router-dom'
+import FavoriteItems from './FavoritePage';
+
 class App extends React.Component {
   constructor() {
     super()
@@ -20,6 +22,7 @@ class App extends React.Component {
       isLoaded: false,
       data: [],
       cartItems: [],
+      favoriteItems: [],
       cartStatus: false,
       searchValue: '',
     }
@@ -116,19 +119,19 @@ class App extends React.Component {
   }
   addFavoriteItems(value) {
     this.setState(() => ({
-      cartItems: [...this.state.cartItems, value]
+      favoriteItems: [...this.state.favoriteItems, value]
     }))
 
   }
   deleteFavoriteItems(value) {
     const newItems = []
-    this.state.cartItems.forEach(item => {
+    this.state.favoriteItems.forEach(item => {
       if (item.id !== value) {
         newItems.push(item)
       }
     })
     this.setState(() => ({
-      cartItems: [...newItems]
+      favoriteItems: [...newItems]
     }))
   }
   render() {
@@ -137,9 +140,22 @@ class App extends React.Component {
         key={data.id}
         items={data}
         addCartItems={this.addCartItems}
+        addFavoriteItems={this.addFavoriteItems}
         deleteCartItems={this.deleteCartItems}
+        deleteFavoriteItems={this.deleteFavoriteItems}
         cartItems={this.state.cartItems}
+        favoriteItems={this.state.favoriteItems}
       />
+    ))
+    const FavoriteList = this.state.favoriteItems.map(items => (
+      <FavoriteItems
+        key={items.id}
+        items={items}
+        addCartItems={this.addCartItems}
+        deleteCartItems={this.deleteCartItems}
+        deleteFavoriteItems={this.deleteFavoriteItems}
+      />
+
     ))
     return (
       <div>
@@ -161,6 +177,7 @@ class App extends React.Component {
           </div>
           <Routes>
             <Route exact path='/' element={ContentList} />
+            <Route exact path='/favorite' element={FavoriteList} />
           </Routes>
 
         </div>
