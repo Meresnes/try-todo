@@ -12,12 +12,26 @@
     overflow: hidden;
 }
 
+.card-favorite>img {
+    opacity: 0.7;
+    width: 40px;
+    height: 40px;
+    transition: all 0.5s ease-in-out;
+}
+
+.card-favorite>img:hover {
+    overflow: hidden;
+    cursor: pointer;
+    transform: scale(1.2);
+}
+
 .card-image>img {
     position: absolute;
     margin: auto;
     align-items: center;
     z-index: 4;
     width: auto;
+
 }
 
 .card-image {
@@ -77,13 +91,16 @@
     border-radius: 10px;
     transition: box-shadow 0.6s;
     border: 1px solid #d3d3d3;
+    cursor: pointer;
+}
 
+.cart-btn:hover {
+    box-shadow: 4px 5px 10px 1px gray;
 }
 
 .show {
     background-color: #b8d4d1;
     border: none;
-
 }
 
 .hide {
@@ -95,20 +112,11 @@
     font-weight: 900;
 }
 
-.cart-btn:hover {
-    cursor: pointer;
-    box-shadow: 4px 5px 10px 1px gray;
-
-}
-
 .delete-icon {
     cursor: pointer;
     border-radius: 10px;
     border: 1px solid #d3d3d3;
 }
-
-
-
 
 .moreInfoText {
     font-size: 15px;

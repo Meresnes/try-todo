@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import "./navbar.css"
+import { Link } from "react-router-dom";
 
 
 export default function Navbar(props) {
@@ -14,22 +15,28 @@ export default function Navbar(props) {
     }, [props.cartItems])
     return (
         <div className="navbar-content">
-
-            <div className="logo-block">
-                <img src="./mylogo.png" width={75} height={75} alt="logo" />
-                <h4>Fake store</h4>
-            </div>
+            <Link to='/'>
+                <div className="logo-block">
+                    <img src="./mylogo.png" width={75} height={75} alt="logo" />
+                    <h4>Fake store</h4>
+                </div>
+            </Link>
             <div className="user-block">
-                <img src="./cart.png" style={{ cursor: "pointer" }}
+                <img className="animated-logo"
+                    src="./cart.png"
+                    style={{ cursor: "pointer" }}
                     width={40} height={40}
                     onClick={props.cartHandler}
                     alt="cart" />
                 <b>{cartSumm}$</b>
-                <img src="./favorites.png"
-                    style={{ cursor: "pointer" }}
-                    width={40}
-                    height={40}
-                    alt="cart" />
+                <Link to='/favorite'>
+                    <img className="animated-logo"
+                        src="./favorite.svg"
+                        style={{ cursor: "pointer" }}
+                        width={40}
+                        height={40}
+                        alt="cart" />
+                </Link>
             </div>
 
         </div>

@@ -4,7 +4,7 @@ import Cart from './Cart';
 import Content from './Content';
 import Navbar from './Navbar';
 import axios from 'axios';
-
+import { Routes, Route } from 'react-router-dom'
 class App extends React.Component {
   constructor() {
     super()
@@ -14,6 +14,8 @@ class App extends React.Component {
     this.cartHandler = this.cartHandler.bind(this)
     this.addCartItems = this.addCartItems.bind(this)
     this.deleteCartItems = this.deleteCartItems.bind(this)
+    this.addFavoriteItems = this.addFavoriteItems.bind(this)
+    this.deleteFavoriteItems = this.deleteFavoriteItems.bind(this)
     this.state = {
       isLoaded: false,
       data: [],
@@ -108,7 +110,23 @@ class App extends React.Component {
         newItems.push(item)
       }
     })
+    this.setState(() => ({
+      cartItems: [...newItems]
+    }))
+  }
+  addFavoriteItems(value) {
+    this.setState(() => ({
+      cartItems: [...this.state.cartItems, value]
+    }))
 
+  }
+  deleteFavoriteItems(value) {
+    const newItems = []
+    this.state.cartItems.forEach(item => {
+      if (item.id !== value) {
+        newItems.push(item)
+      }
+    })
     this.setState(() => ({
       cartItems: [...newItems]
     }))
@@ -133,6 +151,7 @@ class App extends React.Component {
         <div className='cardsContent' >
 
           <Navbar cartHandler={this.cartHandler} cartItems={this.state.cartItems} />
+
           <div className='topContent'>
             <h3>All Products</h3>
             <div className="input-field">
@@ -140,8 +159,12 @@ class App extends React.Component {
             </div>
 
           </div>
-          {ContentList}
+          <Routes>
+            <Route exact path='/' element={ContentList} />
+          </Routes>
+
         </div>
+
       </div>
     )
   }
