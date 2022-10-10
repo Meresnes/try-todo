@@ -16,8 +16,9 @@ export default class CartItems extends Component {
 
 
         }
+
         return (
-            <div className="card center">
+            <div className="card center" >
                 <div className="card-title ">
                     <p className="flow-text">{this.props.items.title}</p>
 
@@ -38,8 +39,8 @@ export default class CartItems extends Component {
                     </svg>
 
                 </div>
-
             </div>
+
         )
     }
 }

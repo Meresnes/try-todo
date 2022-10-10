@@ -7,7 +7,7 @@ function Content(props) {
     //     const isInCart = (props.cartItems.includes(props.items))
 
     // }, [props.items])
-
+    { console.log('h1') }
     const addCartStatus = () => {
         const isInCart = (props.cartItems.includes(props.items))
         isInCart ? props.deleteCartItems(props.items.id) : props.addCartItems(props.items)

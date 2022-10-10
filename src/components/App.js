@@ -116,6 +116,7 @@ class App extends React.Component {
     this.setState(() => ({
       cartItems: [...newItems]
     }))
+
   }
   addFavoriteItems(value) {
     this.setState(() => ({
@@ -133,6 +134,7 @@ class App extends React.Component {
     this.setState(() => ({
       favoriteItems: [...newItems]
     }))
+    console.log('Deleted')
   }
   render() {
     const ContentList = this.state.data.filter(data => data.title.toLowerCase().includes(this.state.searchValue.toLowerCase())).map(data => (
@@ -167,7 +169,6 @@ class App extends React.Component {
         <div className='cardsContent' >
 
           <Navbar cartHandler={this.cartHandler} cartItems={this.state.cartItems} />
-
           <div className='topContent'>
             <h3>All Products</h3>
             <div className="input-field">
