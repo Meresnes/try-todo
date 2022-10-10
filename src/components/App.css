@@ -14,8 +14,26 @@
 
 }
 
-.topContent {
+.page-body {
   width: 100%;
+}
+
+.items-body {
+  display: flex;
+  width: 90%;
+  position: relative;
+  border-radius: 30px;
+  min-height: 550px;
+  height: auto;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: stretch;
+  background-color: #ffffff;
+}
+
+.topContent {
+  width: 90%;
   overflow: hidden;
   display: flex;
   height: auto;
@@ -37,4 +55,12 @@
   border-radius: 10px;
   border: 0 0 1px 0 solid #bad5d2;
 
+}
+
+.empty-result {
+  color: black;
+  font-weight: 400;
+  align-items: center;
+  font-style: Inter;
+  margin-top: 15%;
 }

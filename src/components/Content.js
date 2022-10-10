@@ -7,7 +7,7 @@ function Content(props) {
     //     const isInCart = (props.cartItems.includes(props.items))
 
     // }, [props.items])
-    { console.log('h1') }
+
     const addCartStatus = () => {
         const isInCart = (props.cartItems.includes(props.items))
         isInCart ? props.deleteCartItems(props.items.id) : props.addCartItems(props.items)
@@ -17,7 +17,7 @@ function Content(props) {
     const addFavoriteStatus = () => {
         const isInFavorites = (props.favoriteItems.includes(props.items))
         isInFavorites ? props.deleteFavoriteItems(props.items.id) : props.addFavoriteItems(props.items)
-        console.log(props.favoriteItems)
+
     }
 
     return (

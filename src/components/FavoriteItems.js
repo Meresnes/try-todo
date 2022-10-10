@@ -1,6 +1,6 @@
 import { Component } from "react";
 
-export default class FavoritePage extends Component {
+export default class FavoriteItems extends Component {
     render() {
         return (
             <div className="card center hoverable">

@@ -30,7 +30,7 @@ export default class Cart extends Component {
                             flexDirection: "column",
                             justifyContent: "space-around",
 
-                        }}><h2 style={{ margin: "0 auto 30px 20px" }}> Your cart is empty</h2> <img style={{ margin: "auto" }} src="./sad_icon.svg" alt="sad" width={'100px'} height={'100px'} /></div>}
+                        }}><h2 style={{ margin: "0 auto 30px 20px" }}> Your cart is empty</h2><br /> <img style={{ margin: "auto" }} src="./sad_icon.svg" alt="sad" width={'100px'} height={'100px'} /></div>}
                     </div>
                     <div className="cart-footer">
                         <button>Place an order</button>

@@ -1,11 +1,11 @@
 import React from 'react'
-import './App.css';
+//import './App.css';
 import Cart from './Cart';
-import Content from './Content';
+import FavoritePage from '../pages/FavoritePage';
 import Navbar from './Navbar';
 import axios from 'axios';
 import { Routes, Route } from 'react-router-dom'
-import FavoriteItems from './FavoritePage';
+import ProductPage from '../pages/ProductPage';
 
 class App extends React.Component {
   constructor() {
@@ -134,51 +134,36 @@ class App extends React.Component {
     this.setState(() => ({
       favoriteItems: [...newItems]
     }))
-    console.log('Deleted')
+
   }
   render() {
-    const ContentList = this.state.data.filter(data => data.title.toLowerCase().includes(this.state.searchValue.toLowerCase())).map(data => (
-      <Content
-        key={data.id}
-        items={data}
-        addCartItems={this.addCartItems}
-        addFavoriteItems={this.addFavoriteItems}
-        deleteCartItems={this.deleteCartItems}
-        deleteFavoriteItems={this.deleteFavoriteItems}
-        cartItems={this.state.cartItems}
-        favoriteItems={this.state.favoriteItems}
-      />
-    ))
-    const FavoriteList = this.state.favoriteItems.map(items => (
-      <FavoriteItems
-        key={items.id}
-        items={items}
-        addCartItems={this.addCartItems}
-        deleteCartItems={this.deleteCartItems}
-        deleteFavoriteItems={this.deleteFavoriteItems}
-      />
 
-    ))
     return (
       <div>
         {this.state.openCart ? document.body.style.overflowY = "hidden" : document.body.style.overflowY = "scroll"}
         {this.state.openCart && <Cart cartHandler={this.cartHandler} cartItems={this.state.cartItems} deleteCartItems={this.deleteCartItems} />}
         <button onClick={this.showData}>show data</button>
         {this.state.isLoaded ? <h1>Ready</h1> : <h1>Loading</h1>}
+        <div className='cardsContent'>
 
-        <div className='cardsContent' >
 
           <Navbar cartHandler={this.cartHandler} cartItems={this.state.cartItems} />
-          <div className='topContent'>
-            <h3>All Products</h3>
-            <div className="input-field">
-              <input id="search" type="text" onChange={event => this.setState({ searchValue: event.target.value })} value={this.state.searchValue} placeholder='Search...' />
-            </div>
 
-          </div>
           <Routes>
-            <Route exact path='/' element={ContentList} />
-            <Route exact path='/favorite' element={FavoriteList} />
+            <Route exact path='/' element={<ProductPage
+              data={this.state.data}
+              addCartItems={this.addCartItems}
+              addFavoriteItems={this.addFavoriteItems}
+              deleteCartItems={this.deleteCartItems}
+              deleteFavoriteItems={this.deleteFavoriteItems}
+              cartItems={this.state.cartItems}
+              favoriteItems={this.state.favoriteItems} />} />
+
+            <Route exact path='/favorite' element={<FavoritePage
+              items={this.state.favoriteItems}
+              addCartItems={this.addCartItems}
+              deleteCartItems={this.deleteCartItems}
+              deleteFavoriteItems={this.deleteFavoriteItems} />} />
           </Routes>
 
         </div>

@@ -14,7 +14,6 @@ export default class CartItems extends Component {
             overflow: "hidden",
             width: "100%",
 
-
         }
 
         return (
