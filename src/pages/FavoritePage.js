@@ -14,6 +14,9 @@ function FavoritePage(props) {
     ))
     return (
         <div className="items-body">
+            <div className='topContent'>
+                <h3>Faforites</h3>
+            </div>
             {FavoriteList.length > 0 ? FavoriteList : <h3 className="empty-result"> You have not favorite products </h3>}
         </div>
     )
