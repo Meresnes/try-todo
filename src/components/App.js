@@ -56,6 +56,20 @@ class App extends React.Component {
       .then(function () {
         // always executed
       });
+    axios.get('https://6336fe665327df4c43cdefe7.mockapi.io/favorite').then((response) => {
+      this.setState({
+
+        favoriteItems: [...response.data]
+      })
+
+    })
+      .catch(function (error) {
+        // handle error
+        console.log(error);
+      })
+      .then(function () {
+        // always executed
+      });
   }
   componentDidMount() {
     this.get_data()
@@ -118,23 +132,34 @@ class App extends React.Component {
     }))
 
   }
-  addFavoriteItems(value) {
-    this.setState(() => ({
-      favoriteItems: [...this.state.favoriteItems, value]
-    }))
+  async addFavoriteItems(value) {
+    try {
+      this.setState(() => ({
+        favoriteItems: [...this.state.favoriteItems, value]
+      }))
+      await axios.post('https://6336fe665327df4c43cdefe7.mockapi.io/favorite', value)
+    } catch (error) {
+      alert(error)
+    }
+
+
 
   }
-  deleteFavoriteItems(value) {
-    const newItems = []
-    this.state.favoriteItems.forEach(item => {
-      if (item.id !== value) {
-        newItems.push(item)
-      }
-    })
-    this.setState(() => ({
-      favoriteItems: [...newItems]
-    }))
-
+  async deleteFavoriteItems(value) {
+    try {
+      const newItems = []
+      this.state.favoriteItems.forEach(item => {
+        if (Number(item.id) !== Number(value)) {
+          newItems.push(item)
+        }
+      })
+      this.setState(() => ({
+        favoriteItems: [...newItems]
+      }))
+      await axios.delete(`https://6336fe665327df4c43cdefe7.mockapi.io/favorite/${value}`)
+    } catch (error) {
+      alert(error)
+    }
   }
   render() {
 
