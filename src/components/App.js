@@ -29,7 +29,7 @@ class App extends React.Component {
 
   }
 
-  get_data() {
+  async get_data() {
     // fetch('https://dummyjson.com/products')
     //   .then(res => res.json())
     //   .then((result) => {
@@ -42,21 +42,7 @@ class App extends React.Component {
     //   })
 
     //Api is https://dummyjson.com/products
-    axios.get('https://6336fe665327df4c43cdefe7.mockapi.io/data').then((response) => {
-      this.setState({
-        isLoaded: true,
-        data: [...response.data[0].products]
-      })
-      // console.log(response.data[0].products)
-    })
-      .catch(function (error) {
-        // handle error
-        console.log(error);
-      })
-      .then(function () {
-        // always executed
-      });
-    axios.get('https://6336fe665327df4c43cdefe7.mockapi.io/favorite').then((response) => {
+    await axios.get('https://6336fe665327df4c43cdefe7.mockapi.io/favorite').then((response) => {
       this.setState({
 
         favoriteItems: [...response.data]
@@ -70,13 +56,28 @@ class App extends React.Component {
       .then(function () {
         // always executed
       });
+    await axios.get('https://6336fe665327df4c43cdefe7.mockapi.io/data').then((response) => {
+      this.setState({
+        isLoaded: true,
+        data: [...response.data[0].products]
+      })
+      // console.log(response.data[0].products)
+    })
+      .catch(function (error) {
+        // handle error
+        console.log(error);
+      })
+      .then(function () {
+        // always executed
+      });
+
   }
   componentDidMount() {
     this.get_data()
 
   }
   showData() {
-    console.log(this.state.data)
+    console.log(this.state.favoriteItems)
 
     // axios.post('https://6336fe665327df4c43cdefe7.mockapi.io/products', this.state.data.map((item) => ({
     //   id: item.id,
@@ -134,29 +135,46 @@ class App extends React.Component {
   }
   async addFavoriteItems(value) {
     try {
-      this.setState(() => ({
-        favoriteItems: [...this.state.favoriteItems, value]
-      }))
-      await axios.post('https://6336fe665327df4c43cdefe7.mockapi.io/favorite', value)
+
+      console.log(value)
+      await axios.post(`https://6336fe665327df4c43cdefe7.mockapi.io/favorite`, value)
+
+      axios.get('https://6336fe665327df4c43cdefe7.mockapi.io/favorite').then((response) => {
+        this.setState({
+
+          favoriteItems: [...response.data]
+        })
+
+      })
+        .catch(function (error) {
+          // handle error
+          console.log(error);
+        })
+        .then(function () {
+          // always executed
+        });
+
     } catch (error) {
       alert(error)
     }
-
-
-
   }
   async deleteFavoriteItems(value) {
     try {
-      const newItems = []
-      this.state.favoriteItems.forEach(item => {
-        if (Number(item.id) !== Number(value)) {
-          newItems.push(item)
-        }
-      })
+
+      let delItem = this.state.favoriteItems.filter(item => (
+        item.title === value.title
+      ))
+
+      let newItems = []
+      newItems = this.state.favoriteItems.filter(item => (
+        Number(item.id) !== Number(delItem[0].id)
+      ))
+      await axios.delete(`https://6336fe665327df4c43cdefe7.mockapi.io/favorite/${Number(delItem[0].id)}`)
       this.setState(() => ({
         favoriteItems: [...newItems]
       }))
-      await axios.delete(`https://6336fe665327df4c43cdefe7.mockapi.io/favorite/${value}`)
+
+
     } catch (error) {
       alert(error)
     }
@@ -165,7 +183,7 @@ class App extends React.Component {
 
     return (
       <div>
-        {this.state.openCart ? document.body.style.overflowY = "hidden" : document.body.style.overflowY = "scroll"}
+
         {this.state.openCart && <Cart cartHandler={this.cartHandler} cartItems={this.state.cartItems} deleteCartItems={this.deleteCartItems} />}
         <button onClick={this.showData}>show data</button>
         {this.state.isLoaded ? <h1>Ready</h1> : <h1>Loading</h1>}
@@ -192,7 +210,7 @@ class App extends React.Component {
           </Routes>
 
         </div>
-
+        <div style={{ display: 'none' }}>{this.state.openCart ? document.body.style.overflow = "hidden" : document.body.style.overflow = 'scroll'}</div>
       </div>
     )
   }

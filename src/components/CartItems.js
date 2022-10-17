@@ -23,7 +23,7 @@ export default class CartItems extends Component {
 
                 </div>
                 <div className="card-image">
-                    <img src={this.props.items.images[0]} maxHeight={'130px'} maxWidth={'100px'} alt={this.props.items.title} />
+                    <img src={this.props.items.images[0]} maxheight={'130px'} maxwidth={'100px'} alt={this.props.items.title} />
                 </div>
                 <div className="card-content" style={cardStyles}>
                     <p>{this.props.items.price}$ </p>

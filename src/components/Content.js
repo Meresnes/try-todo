@@ -35,8 +35,11 @@ function Content(props) {
         // <div className="col s12 m3">
         <div className="card center hoverable">
             <div className="card-favorite">
-                <img className={`${props.favoriteItems.includes(props.items) ? 'hide' : ''}`} onClick={addFavoriteStatus} src="/favorite.svg" alt="favorite" />
-                <img className={`${props.favoriteItems.includes(props.items) ? '' : 'hide'}`} onClick={addFavoriteStatus} src="/favoriteLiked.svg" alt="favorite" />
+
+                {/* {props.favoriteItems.includes(props.items) && console.log(props.favoriteItems[Number(props.items.id)])} */}
+                {/* <img className={`${props.favoriteItems.includes(props.items.id) ? '' : 'hide'}`} onClick={() => props.deleteFavoriteItems(props.items)} src="/favoriteLiked.svg" alt="favorite" />
+                <img className={`${props.favoriteItems.includes(props.items.id) ? 'hide' : ''}`} onClick={() => props.addFavoriteItems(props.items)} src="/favorite.svg" alt="favorite" /> */}
+                {props.favoriteItems.find(el => el.title === props.items.title) ? <img onClick={() => props.deleteFavoriteItems(props.items)} src="/favoriteLiked.svg" alt="favorite" /> : <img onClick={() => props.addFavoriteItems(props.items)} src="/favorite.svg" alt="favorite" />}
             </div>
             <div className="card-image">
 

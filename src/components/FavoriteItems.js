@@ -5,7 +5,7 @@ export default class FavoriteItems extends Component {
         return (
             <div className="card center hoverable">
                 <div className="card-favorite">
-                    <img onClick={() => this.props.deleteFavoriteItems(this.props.items.id)} src="/favoriteLiked.svg" alt="favorite" />
+                    <img onClick={() => this.props.deleteFavoriteItems(this.props.items)} src="/favoriteLiked.svg" alt="favorite" />
                 </div>
                 <div className="card-image">
 
