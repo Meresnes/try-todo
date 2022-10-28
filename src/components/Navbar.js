@@ -1,31 +1,46 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import "./navbar.css"
+import { Link } from "react-router-dom";
 
 
-export default class Navbar extends React.Component{
-    render(){ 
-        return(
-            <div className="navbar-content">
-                
+export default function Navbar(props) {
+    const [cartSumm, setSumm] = useState(0)
+    useEffect(() => {
+        let itemsSumm = 0
+        props.cartItems.forEach(item => {
+            itemsSumm += item.price
+        })
+        setSumm(itemsSumm)
+
+    }, [props.cartItems])
+    return (
+        <div className="navbar-content">
+            <Link to='/'>
                 <div className="logo-block">
                     <img src="./mylogo.png" width={75} height={75} alt="logo" />
                     <h4>Fake store</h4>
                 </div>
-                <div className="user-block">
-                    <img src="./cart.png" style={{cursor: "pointer"}}
-                     width={40} height={40}
-                     onClick={this.props.cartHandler}
-                     alt="cart"  />      
-                    <b>313$</b> 
-                    <img src="./favorites.png" 
-                        style={{cursor: "pointer"}}
-                        width={40} 
+            </Link>
+            <div className="user-block">
+                <img className="animated-logo"
+                    src="./cart.png"
+                    style={{ cursor: "pointer" }}
+                    width={40} height={40}
+                    onClick={props.cartHandler}
+                    alt="cart" />
+                <b>{cartSumm}$</b>
+                <Link to='/favorite'>
+                    <img className="animated-logo"
+                        src="./favoriteLiked.svg"
+                        style={{ cursor: "pointer" }}
+                        width={40}
                         height={40}
                         alt="cart" />
-                </div>
-                
+                </Link>
             </div>
-            
-        )
-    }
+
+        </div>
+
+    )
+
 }
