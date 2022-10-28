@@ -30,32 +30,23 @@ class App extends React.Component {
   }
 
   async get_data() {
-    // fetch('https://dummyjson.com/products')
-    //   .then(res => res.json())
-    //   .then((result) => {
-    //     console.log(result)
-    //     this.setState({
-    //       isLoaded: true,
-    //       data: [...result.products].sort(),
 
-    //     })
-    //   })
 
     //Api is https://dummyjson.com/products
-    await axios.get('https://6336fe665327df4c43cdefe7.mockapi.io/favorite').then((response) => {
-      this.setState({
+    // await axios.get('https://6336fe665327df4c43cdefe7.mockapi.io/favorite').then((response) => {
+    //   this.setState({
 
-        favoriteItems: [...response.data]
-      })
+    //     favoriteItems: [...response.data]
+    //   })
 
-    })
-      .catch(function (error) {
-        // handle error
-        console.log(error);
-      })
-      .then(function () {
-        // always executed
-      });
+    // })
+    //   .catch(function (error) {
+    //     // handle error
+    //     console.log(error);
+    //   })
+    //   .then(function () {
+    //     // always executed
+    //   });
     await axios.get('https://6336fe665327df4c43cdefe7.mockapi.io/data').then((response) => {
       this.setState({
         isLoaded: true,
@@ -99,13 +90,7 @@ class App extends React.Component {
     //     console.log(error);
     //   });
   }
-  // openCartHandler(){
-  //   this.setState({openCart:true})
-  // }
-  // closeCartHandler(){
-  //   this.setState({openCart:false})
 
-  // }
   cartHandler() {
     this.setState({ openCart: !this.state.openCart })
     window.scrollTo({
@@ -133,43 +118,39 @@ class App extends React.Component {
     }))
 
   }
-  async addFavoriteItems(value) {
+  addFavoriteItems(value) {
     try {
 
-      console.log(value)
-      await axios.post(`https://6336fe665327df4c43cdefe7.mockapi.io/favorite`, value)
+      // console.log(value)
+      // await axios.post(`https://6336fe665327df4c43cdefe7.mockapi.io/favorite`, value)
 
-      axios.get('https://6336fe665327df4c43cdefe7.mockapi.io/favorite').then((response) => {
-        this.setState({
+      // axios.get('https://6336fe665327df4c43cdefe7.mockapi.io/favorite').then((response) => {
+      this.setState({
 
-          favoriteItems: [...response.data]
-        })
-
+        favoriteItems: [...this.state.favoriteItems, value]
       })
-        .catch(function (error) {
-          // handle error
-          console.log(error);
-        })
-        .then(function () {
-          // always executed
-        });
+
+      // })
+      // .catch(function (error) {
+      //   // handle error
+      //   console.log(error);
+      // })
+      // .then(function () {
+      //   // always executed
+      // });
 
     } catch (error) {
       alert(error)
     }
   }
-  async deleteFavoriteItems(value) {
+  deleteFavoriteItems(value) {
     try {
-
-      let delItem = this.state.favoriteItems.filter(item => (
-        item.title === value.title
-      ))
 
       let newItems = []
       newItems = this.state.favoriteItems.filter(item => (
-        Number(item.id) !== Number(delItem[0].id)
+        Number(item.id) !== Number(value.id)
       ))
-      await axios.delete(`https://6336fe665327df4c43cdefe7.mockapi.io/favorite/${Number(delItem[0].id)}`)
+
       this.setState(() => ({
         favoriteItems: [...newItems]
       }))
