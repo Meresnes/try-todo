@@ -18,6 +18,7 @@ class App extends React.Component {
     this.deleteCartItems = this.deleteCartItems.bind(this)
     this.addFavoriteItems = this.addFavoriteItems.bind(this)
     this.deleteFavoriteItems = this.deleteFavoriteItems.bind(this)
+    this.clearCart = this.clearCart.bind(this)
     this.state = {
       isLoaded: false,
       data: [],
@@ -90,7 +91,11 @@ class App extends React.Component {
     //     console.log(error);
     //   });
   }
-
+  clearCart() {
+    this.setState({
+      cartItems: []
+    })
+  }
   cartHandler() {
     this.setState({ openCart: !this.state.openCart })
     window.scrollTo({
@@ -165,7 +170,10 @@ class App extends React.Component {
     return (
       <div>
 
-        {this.state.openCart && <Cart cartHandler={this.cartHandler} cartItems={this.state.cartItems} deleteCartItems={this.deleteCartItems} />}
+        {this.state.openCart && <Cart cartHandler={this.cartHandler}
+          cartItems={this.state.cartItems}
+          deleteCartItems={this.deleteCartItems}
+          clearCart={this.clearCart} />}
         <button onClick={this.showData}>show data</button>
         {this.state.isLoaded ? <h1>Ready</h1> : <h1>Loading</h1>}
         <div className='cardsContent'>

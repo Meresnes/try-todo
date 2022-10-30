@@ -28,7 +28,7 @@ export default function Navbar(props) {
                     width={40} height={40}
                     onClick={props.cartHandler}
                     alt="cart" />
-                <b>{cartSumm}$</b>
+                <b>{cartSumm}$ </b>
                 <Link to='/favorite'>
                     <img className="animated-logo"
                         src="./favoriteLiked.svg"

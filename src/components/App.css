@@ -49,7 +49,8 @@
 }
 
 .input-field {
-  margin-right: 40px;
+  margin-right: 10%;
+  width: 15%;
   overflow: hidden;
 }
 
