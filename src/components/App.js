@@ -182,7 +182,7 @@ class App extends React.Component {
           <Navbar cartHandler={this.cartHandler} cartItems={this.state.cartItems} />
 
           <Routes>
-            <Route exact path='https://meresnes.github.io/try-todo' element={<ProductPage
+            <Route exact path='/' element={<ProductPage
               data={this.state.data}
               addCartItems={this.addCartItems}
               addFavoriteItems={this.addFavoriteItems}
