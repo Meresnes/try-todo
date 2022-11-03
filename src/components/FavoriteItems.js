@@ -12,7 +12,7 @@ export default function FavoriteItems(props) {
     return (
         <div className="card center hoverable">
             <div className="card-favorite">
-                <img onClick={() => props.deleteFavoriteItems(props.items)} src="./favoriteLiked.svg" alt="favorite" />
+                <img onClick={() => props.deleteFavoriteItems(props.items)} src="./favoriteLiked.png" alt="favorite" />
             </div>
             <div className="card-image">
 

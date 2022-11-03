@@ -15,7 +15,7 @@ export default function Navbar(props) {
     }, [props.cartItems])
     return (
         <div className="navbar-content">
-            <Link to='/try-todo'>
+            <Link to='/try-todo/'>
                 <div className="logo-block">
                     <img src="./mylogo.png" width={75} height={75} alt="logo" />
                     <h4>Fake store</h4>
@@ -31,7 +31,7 @@ export default function Navbar(props) {
                 <b>{cartSumm}$ </b>
                 <Link to='/try-todo/favorite'>
                     <img className="animated-logo"
-                        src="./favoriteLiked.svg"
+                        src="./favoriteLiked.png"
                         style={{ cursor: "pointer" }}
                         width={40}
                         height={40}
