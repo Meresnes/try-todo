@@ -1,7 +1,9 @@
 import React, { useEffect, useState } from "react";
 import "./navbar.css"
 import { Link } from "react-router-dom";
-
+import Logo from "../img/mylogo.png"
+import Cart from "../img/cart.png"
+import Favorie from "../img/favoriteLiked.png"
 
 export default function Navbar(props) {
     const [cartSumm, setSumm] = useState(0)
@@ -17,13 +19,13 @@ export default function Navbar(props) {
         <div className="navbar-content">
             <Link to='/try-todo/'>
                 <div className="logo-block">
-                    <img src="./mylogo.png" width={75} height={75} alt="logo" />
+                    <img src={Logo} width={75} height={75} alt="logo" />
                     <h4>Fake store</h4>
                 </div>
             </Link>
             <div className="user-block">
                 <img className="animated-logo"
-                    src="./cart.png"
+                    src={Cart}
                     style={{ cursor: "pointer" }}
                     width={40} height={40}
                     onClick={props.cartHandler}
@@ -31,7 +33,7 @@ export default function Navbar(props) {
                 <b>{cartSumm}$ </b>
                 <Link to='/try-todo/favorite'>
                     <img className="animated-logo"
-                        src="./favoriteLiked.png"
+                        src={Favorie}
                         style={{ cursor: "pointer" }}
                         width={40}
                         height={40}

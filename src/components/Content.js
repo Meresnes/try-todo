@@ -1,5 +1,9 @@
 import React from "react"
 import './Content.css'
+
+import FavoriteLiked from '../img/favoriteLiked.png'
+import Favorite from '../img/favorite.png'
+
 function Content(props) {
     // const { cartAdded, setCartAdded } = useState(false)
     // useEffect(() => {
@@ -39,7 +43,7 @@ function Content(props) {
                 {/* {props.favoriteItems.includes(props.items) && console.log(props.favoriteItems[Number(props.items.id)])} */}
                 {/* <img className={`${props.favoriteItems.includes(props.items.id) ? '' : 'hide'}`} onClick={() => props.deleteFavoriteItems(props.items)} src="/favoriteLiked.svg" alt="favorite" />
                 <img className={`${props.favoriteItems.includes(props.items.id) ? 'hide' : ''}`} onClick={() => props.addFavoriteItems(props.items)} src="/favorite.svg" alt="favorite" /> */}
-                {props.favoriteItems.find(el => el.title === props.items.title) ? <img onClick={() => props.deleteFavoriteItems(props.items)} src="./favoriteLiked.png" alt="favorite" /> : <img onClick={() => props.addFavoriteItems(props.items)} src="./favorite.png" alt="favorite" />}
+                {props.favoriteItems.find(el => el.title === props.items.title) ? <img onClick={() => props.deleteFavoriteItems(props.items)} src={FavoriteLiked} alt="favorite" /> : <img onClick={() => props.addFavoriteItems(props.items)} src={Favorite} alt="favorite" />}
             </div>
             <div className="card-image">
 

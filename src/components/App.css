@@ -1,18 +1,33 @@
-.cardsContent {
-  margin: 30px auto 15px auto;
-  display: flex;
-  width: 90%;
-  position: relative;
-  height: auto;
-  flex-direction: row;
-  flex-wrap: wrap;
-  justify-content: center;
-  align-items: stretch;
-  background-color: #ffffff;
+@media (max-width:600px) {
+  .cardsContent {
+    display: flex;
+    width: 100%;
+    position: relative;
+    height: auto;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: stretch;
+    background-color: #ffffff;
 
-  border: 3px solid #33aba0;
-  border-radius: 30px;
+  }
+}
 
+@media (min-width:601px) {
+  .cardsContent {
+    margin: 30px auto 15px auto;
+    display: flex;
+    width: 90%;
+    position: relative;
+    height: auto;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: stretch;
+    background-color: #ffffff;
+    border: 3px solid #33aba0;
+    border-radius: 30px;
+  }
 }
 
 .page-body {
@@ -35,8 +50,6 @@
   background-color: #ffffff;
 }
 
-
-
 @media (min-width: 601px) {
   .topContent {
     width: 100%;
@@ -47,7 +60,6 @@
     justify-content: space-between;
     align-items: center;
     margin: 0px 30px 0 30px;
-
   }
 
   .input-field {
@@ -55,7 +67,6 @@
     overflow: hidden;
     margin-right: 50px;
   }
-
 }
 
 @media (max-width:600px) {
@@ -67,8 +78,6 @@
     flex-direction: column;
     justify-content: space-around;
     align-items: center;
-
-
   }
 
   .input-field {
@@ -78,17 +87,13 @@
 }
 
 .topContent>h3 {
-
   font-weight: 400;
 }
-
-
 
 .topContent>input {
   height: 30px;
   border-radius: 10px;
   border: 0 0 1px 0 solid #bad5d2;
-
 }
 
 .empty-result {

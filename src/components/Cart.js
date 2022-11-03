@@ -2,6 +2,9 @@ import "./Cart.css"
 import axios from "axios";
 import CartItems from "./CartItems";
 import React, { useState, useEffect } from "react";
+
+import SadIcon from "../img/sad_icon.png"
+
 export default function Cart(props) {
 
     const [cartSumm, setSumm] = useState(0)
@@ -65,7 +68,7 @@ export default function Cart(props) {
                         flexDirection: "column",
                         justifyContent: "space-around",
 
-                    }}><h2 style={{ margin: "0 auto 30px 20px" }}> Your cart is empty</h2><br /> <img style={{ margin: "auto" }} src="./sad_icon.png" alt="sad" width={'100px'} height={'100px'} /></div>}
+                    }}><h2 style={{ margin: "0 auto 30px 20px" }}> Your cart is empty</h2><br /> <img style={{ margin: "auto" }} src={SadIcon} alt="sad" width={'100px'} height={'100px'} /></div>}
                 </div>
                 <div className="cart-footer">
                     <div className="total-price">

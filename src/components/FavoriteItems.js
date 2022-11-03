@@ -1,5 +1,7 @@
 import React from "react";
 
+import FavoriteLiked from '../img/favoriteLiked.png'
+
 export default function FavoriteItems(props) {
 
 
@@ -12,10 +14,9 @@ export default function FavoriteItems(props) {
     return (
         <div className="card center hoverable">
             <div className="card-favorite">
-                <img onClick={() => props.deleteFavoriteItems(props.items)} src="./favoriteLiked.png" alt="favorite" />
+                <img onClick={() => props.deleteFavoriteItems(props.items)} src={FavoriteLiked} alt="favorite" />
             </div>
             <div className="card-image">
-
                 <img src={props.items.images[0]} alt={props.items.title} />
             </div>
             <div className="card-body">
