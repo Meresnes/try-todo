@@ -9,6 +9,7 @@ function FavoritePage(props) {
             addCartItems={props.addCartItems}
             deleteCartItems={props.deleteCartItems}
             deleteFavoriteItems={props.deleteFavoriteItems}
+            cartItems={props.cartItems}
         />
 
     ))

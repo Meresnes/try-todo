@@ -195,6 +195,7 @@ class App extends React.Component {
               items={this.state.favoriteItems}
               addCartItems={this.addCartItems}
               deleteCartItems={this.deleteCartItems}
+              cartItems={this.state.cartItems}
               deleteFavoriteItems={this.deleteFavoriteItems} />} />
           </Routes>
 
