@@ -1,6 +1,6 @@
 {
-  "homepage": "https://meresnes.github.io/try-todo",
   "name": "try-todo",
+  "homepage": "https://meresnes.github.com/try-todo",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
