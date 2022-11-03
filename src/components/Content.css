@@ -1,9 +1,6 @@
 .card {
-    margin-left: 10%;
-    margin-right: 20px;
-    margin-top: 50px;
+    margin: 30px 20px 40px 20px;
     border-radius: 20px;
-
     position: relative;
     display: flex;
     flex-direction: column;
@@ -48,6 +45,11 @@
 
 .flow-text {
     font-size: 18px;
+}
+
+.card-body {
+    margin: auto;
+    padding: 0;
 }
 
 .card-body>button {

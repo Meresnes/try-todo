@@ -1,4 +1,5 @@
 .cardsContent {
+  margin: 30px auto 15px auto;
   display: flex;
   width: 90%;
   position: relative;
@@ -8,7 +9,7 @@
   justify-content: center;
   align-items: stretch;
   background-color: #ffffff;
-  margin-left: 3%;
+
   border: 3px solid #33aba0;
   border-radius: 30px;
 
@@ -20,10 +21,12 @@
 
 .items-body {
   display: flex;
-  width: 90%;
+  width: 100%;
   position: relative;
   border-radius: 30px;
   min-height: 650px;
+  margin-bottom: 40px;
+  padding: 50px auto 50px auto;
   height: auto;
   flex-direction: row;
   flex-wrap: wrap;
@@ -32,27 +35,54 @@
   background-color: #ffffff;
 }
 
-.topContent {
-  width: 100%;
-  overflow: hidden;
-  display: flex;
-  height: 80px;
-  justify-content: space-between;
-  align-items: center;
-  margin: 10px 30px 0 30px;
 
+
+@media (min-width: 601px) {
+  .topContent {
+    width: 100%;
+    overflow: hidden;
+    display: flex;
+    height: 80px;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    margin: 0px 30px 0 30px;
+
+  }
+
+  .input-field {
+    width: 20%;
+    overflow: hidden;
+    margin-right: 50px;
+  }
+
+}
+
+@media (max-width:600px) {
+  .topContent {
+    width: 100%;
+    overflow: hidden;
+    display: flex;
+    height: auto;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+
+
+  }
+
+  .input-field {
+    width: 60%;
+    overflow: hidden;
+  }
 }
 
 .topContent>h3 {
-  font-family: 'Montserrat';
-  font-weight: 600;
+
+  font-weight: 400;
 }
 
-.input-field {
-  margin-right: 10%;
-  width: 15%;
-  overflow: hidden;
-}
+
 
 .topContent>input {
   height: 30px;

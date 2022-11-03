@@ -1,27 +1,85 @@
-.navbar-content {
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    justify-content: space-between;
-    background-color: #ffffff;
-    margin: 0;
-    height: auto;
-    width: 100%;
-    padding: 15px;
-    position: relative;
-    border-bottom: 2px solid #efb695;
-    border-radius: 40px 40px 0 0;
-    align-items: center;
-    overflow: auto;
+@media (max-width: 1300px) {
+    .navbar-content {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        background-color: #ffffff;
+        margin: 0;
+        height: auto;
+        width: 100%;
+        padding: 15px;
+        position: relative;
+        border-bottom: 2px solid #efb695;
+        border-radius: 40px 40px 0 0;
+        align-items: center;
+        overflow: auto;
+    }
 
+    .user-block {
+        display: flex;
+        width: 30%;
+        justify-content: space-around;
+        margin: 0 40px;
+    }
+}
 
+@media (min-width: 1301px) {
+    .navbar-content {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        background-color: #ffffff;
+        margin: 0;
+        height: auto;
+        width: 100%;
+        padding: 15px;
+        position: relative;
+        border-bottom: 2px solid #efb695;
+        border-radius: 40px 40px 0 0;
+        align-items: center;
+        overflow: auto;
+    }
+
+    .user-block {
+        display: flex;
+        width: 15%;
+        justify-content: space-around;
+        margin: 0 40px;
+    }
+}
+
+@media (max-width: 600px) {
+    .navbar-content {
+        display: flex;
+        flex-direction: column;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        background-color: #ffffff;
+        margin: 0;
+        height: auto;
+        width: 100%;
+        padding: 15px;
+        position: relative;
+        border-bottom: 2px solid #efb695;
+        border-radius: 40px 40px 0 0;
+        align-items: center;
+        overflow: hidden;
+    }
+
+    .user-block {
+        margin-top: 15px;
+        display: flex;
+        width: 60%;
+        justify-content: space-around;
+    }
 }
 
 b {
     font-size: 18px;
     font-weight: 800;
 }
-
 
 .logo-block {
     display: flex;
@@ -36,21 +94,14 @@ b {
 
 }
 
-
-
 .logo-block>h4 {
     text-decoration: none;
-    font-weight: 400;
-    text-shadow: 1px 1px 2px black;
+    font-weight: 500;
+
     color: black;
 }
 
-.user-block {
-    display: flex;
-    width: 20%;
-    justify-content: space-around;
-    margin: 0 40px;
-}
+
 
 .animated-logo {
     transition: all 0.5s ease-in-out;

@@ -13,18 +13,29 @@ export default function Cart(props) {
         setSumm(itemsSumm)
 
     }, [props.cartItems])
+    const [disable, setDisable] = useState(false)
     const orderHandler = async () => {
         try {
-            const orderData = props.cartItems.map(item => ({
-                product_id: item.id,
-                title: item.title,
-                price: item.price
-            }))
-            orderData.push({ total_summ: cartSumm })
-            console.log(orderData)
-            await axios.post('https://6336fe665327df4c43cdefe7.mockapi.io/orders', orderData)
-            alert('You order has been recived!')
-            props.clearCart()
+            setDisable(true)
+            if (cartSumm) {
+                const orderData = props.cartItems.map(item => ({
+                    product_id: item.id,
+                    title: item.title,
+                    price: item.price
+                }))
+
+                orderData.push({ total_summ: cartSumm })
+                console.log(orderData)
+                await axios.post('https://6336fe665327df4c43cdefe7.mockapi.io/orders', orderData)
+                alert('You order has been recived!')
+
+                props.clearCart()
+                props.cartHandler()
+            } else {
+                alert('Your cart is empty')
+            }
+            setDisable(false)
+
         } catch (error) {
             alert(error)
         }
@@ -60,7 +71,7 @@ export default function Cart(props) {
                     <div className="total-price">
                         <p>Total Amount: </p> <p> {cartSumm} $</p>
                     </div>
-                    <button onClick={orderHandler}>Place an order </button>
+                    <button disabled={disable} onClick={orderHandler}>Place an order </button>
                 </div>
             </div>
         </div>

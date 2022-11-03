@@ -174,8 +174,8 @@ class App extends React.Component {
           cartItems={this.state.cartItems}
           deleteCartItems={this.deleteCartItems}
           clearCart={this.clearCart} />}
-        <button onClick={this.showData}>show data</button>
-        {this.state.isLoaded ? <h1>Ready</h1> : <h1>Loading</h1>}
+        {/* <button onClick={this.showData}>show data</button> */}
+        {/* {this.state.isLoaded ? <h1>Ready</h1> : <h1>Loading</h1>} */}
         <div className='cardsContent'>
 
 
