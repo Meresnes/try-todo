@@ -15,7 +15,7 @@ export default function Navbar(props) {
     }, [props.cartItems])
     return (
         <div className="navbar-content">
-            <Link to='/'>
+            <Link to='/try-todo'>
                 <div className="logo-block">
                     <img src="./mylogo.png" width={75} height={75} alt="logo" />
                     <h4>Fake store</h4>
