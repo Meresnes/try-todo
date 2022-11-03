@@ -191,7 +191,7 @@ class App extends React.Component {
               cartItems={this.state.cartItems}
               favoriteItems={this.state.favoriteItems} />} />
 
-            <Route exact path='/favorite' element={<FavoritePage
+            <Route exact path='/try-todo/favorite' element={<FavoritePage
               items={this.state.favoriteItems}
               addCartItems={this.addCartItems}
               deleteCartItems={this.deleteCartItems}

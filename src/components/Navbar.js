@@ -29,13 +29,13 @@ export default function Navbar(props) {
                     onClick={props.cartHandler}
                     alt="cart" />
                 <b>{cartSumm}$ </b>
-                <Link to='/favorite'>
+                <Link to='/try-todo/favorite'>
                     <img className="animated-logo"
                         src="./favoriteLiked.svg"
                         style={{ cursor: "pointer" }}
                         width={40}
                         height={40}
-                        alt="cart" />
+                        alt="faforite" />
                 </Link>
             </div>
 
