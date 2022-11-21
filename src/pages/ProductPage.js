@@ -1,6 +1,10 @@
 import React from "react"
 import '../components/App.css'
+import '../components/Content'
+
 import Content from "../components/Content"
+import ContentLoader from "react-content-loader"
+
 function ProductPage(props) {
     const [searchValue, setSearchValue] = React.useState('')
     const ContentList = props.data.filter(data => data.title.toLowerCase().includes(searchValue.toLowerCase())).map(data => (
@@ -15,6 +19,28 @@ function ProductPage(props) {
             favoriteItems={props.favoriteItems}
         />
     ))
+
+    const skeleton = [...Array(10)].map((index) => (
+        <div className="card center hoverable">
+            <ContentLoader
+                key={index}
+                speed={2}
+                width={310}
+                height={420}
+                viewBox="0 0 310 420"
+                backgroundColor="#f5f5f5"
+                foregroundColor="#fafafa"
+                {...props}
+            >
+                <rect x="88" y="68" rx="20" ry="20" width="150" height="142" />
+                <rect x="27" y="11" rx="11" ry="11" width="34" height="38" />
+                <rect x="96" y="251" rx="0" ry="0" width="129" height="17" />
+                <rect x="130" y="314" rx="0" ry="0" width="49" height="35" />
+                <rect x="140" y="379" rx="11" ry="11" width="29" height="29" />
+
+            </ContentLoader></div>))
+
+
     return (
 
         <div className="page-body">
@@ -26,7 +52,10 @@ function ProductPage(props) {
                 </div>
             </div>
             <div className="items-body" >
-                {ContentList.length > 0 ? ContentList : <h3>No results</h3>}
+                {props.loadedStatus && ContentList}
+                {!props.loadedStatus && skeleton
+                }
+
             </div>
         </div>
     )

@@ -1,6 +1,6 @@
 import React from "react"
-import './Content.css'
 
+import './Content.css'
 import FavoriteLiked from '../img/favoriteLiked.png'
 import Favorite from '../img/favorite.png'
 
@@ -11,6 +11,7 @@ function Content(props) {
     //     const isInCart = (props.cartItems.includes(props.items))
 
     // }, [props.items])
+
 
     const addCartStatus = () => {
         const isInCart = (props.cartItems.includes(props.items))
@@ -93,6 +94,7 @@ function Content(props) {
 
 
             </div>
+
 
         </div>
         // </div>
