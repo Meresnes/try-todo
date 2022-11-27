@@ -8,8 +8,6 @@
         overflow-y: scroll !important;
         margin: 0 0 25px 4px;
     }
-
-
 }
 
 @media (min-width: 601px) {
@@ -34,9 +32,6 @@
         width: 100%;
         height: 150%;
     }
-
-
-
 }
 
 @media (min-width: 1400px) {
@@ -59,9 +54,6 @@
         width: 100%;
         height: 150%;
     }
-
-
-
 }
 
 .wrapper {
@@ -71,8 +63,6 @@
     position: absolute;
     z-index: 9;
 }
-
-
 
 .cart-header>h3 {
     padding-left: 30px;
@@ -130,6 +120,7 @@ svg {
 
 .cart-footer {
     width: 100%;
+    margin-top: 30px;
     display: flex;
     flex-direction: column;
 
@@ -141,10 +132,41 @@ svg {
     font-weight: 600;
     display: flex;
     border-top: 1px solid #3dafa5;
+    
 }
 
 .total-price>p {
     margin: auto 10px;
+}
+.customer-data{
+    margin-top: 10px;
+    display: flex;
+    justify-content: center;
+    
+    
+}
+.customer-data> form{
+    display: flex;
+    flex-direction: column;
+    
+}
+.customer-data> form>label{
+    font-family: 'Montserrat';
+    font-size: 24px;
+    font-weight: 600;
+    align-items: center;
+    justify-content: center;
+    color: black;
+
+}
+.customer-data> form>input{
+    font-family: 'Montserrat';
+    font-size: 24px;
+    font-weight: 600;
+    align-items: center;
+    justify-content: center;
+    color: black;
+
 }
 
 .cart-footer>button {

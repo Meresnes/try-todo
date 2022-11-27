@@ -10,7 +10,7 @@ import ProductPage from '../pages/ProductPage';
 class App extends React.Component {
   constructor() {
     super()
-    this.showData = this.showData.bind(this)
+
     // this.openCartHandler = this.openCartHandler.bind(this)
     // this.closeCartHandler = this.closeCartHandler.bind(this)
     this.cartHandler = this.cartHandler.bind(this)
@@ -32,23 +32,8 @@ class App extends React.Component {
 
   async get_data() {
 
-
     //Api is https://dummyjson.com/products
-    // await axios.get('https://6336fe665327df4c43cdefe7.mockapi.io/favorite').then((response) => {
-    //   this.setState({
-
-    //     favoriteItems: [...response.data]
-    //   })
-
-    // })
-    //   .catch(function (error) {
-    //     // handle error
-    //     console.log(error);
-    //   })
-    //   .then(function () {
-    //     // always executed
-    //   });
-    await axios.get('https://6336fe665327df4c43cdefe7.mockapi.io/data').then((response) => {
+    await axios.get(process.env.REACT_APP_MOCKAPI_DATA).then((response) => {
       this.setState({
         isLoaded: true,
         data: [...response.data[0].products]
@@ -68,29 +53,7 @@ class App extends React.Component {
     this.get_data()
 
   }
-  showData() {
-    console.log(this.state.favoriteItems)
 
-    // axios.post('https://6336fe665327df4c43cdefe7.mockapi.io/products', this.state.data.map((item) => ({
-    //   id: item.id,
-    //   title: item.title,
-    //   description: item.description,
-    //   price: item.price,
-    //   discountPercentage: item.discountPercentage,
-    //   rating: item.rating,
-    //   stock: item.stock,
-    //   brand: item.brand,
-    //   category: item.category,
-    //   thumbnail: item.thumbnail,
-    //   images: item.images
-    // })))
-    //   .then(function (response) {
-    //     console.log(response);
-    //   })
-    //   .catch(function (error) {
-    //     console.log(error);
-    //   });
-  }
   clearCart() {
     this.setState({
       cartItems: []
@@ -174,7 +137,7 @@ class App extends React.Component {
           cartItems={this.state.cartItems}
           deleteCartItems={this.deleteCartItems}
           clearCart={this.clearCart} />}
-        {/* <button onClick={this.showData}>show data</button> */}
+
         {/* {this.state.isLoaded ? <h1>Ready</h1> : <h1>Loading</h1>} */}
         <div className='cardsContent'>
 

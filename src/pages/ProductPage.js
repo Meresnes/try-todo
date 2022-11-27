@@ -20,17 +20,16 @@ function ProductPage(props) {
         />
     ))
 
-    const skeleton = [...Array(10)].map((index) => (
+    const skeleton = [...Array(10)].map((num) => (
         <div className="card center hoverable">
             <ContentLoader
-                key={index}
+                key={num}
                 speed={2}
                 width={310}
                 height={420}
                 viewBox="0 0 310 420"
                 backgroundColor="#f5f5f5"
                 foregroundColor="#fafafa"
-                {...props}
             >
                 <rect x="88" y="68" rx="20" ry="20" width="150" height="142" />
                 <rect x="27" y="11" rx="11" ry="11" width="34" height="38" />
@@ -53,8 +52,7 @@ function ProductPage(props) {
             </div>
             <div className="items-body" >
                 {props.loadedStatus && ContentList}
-                {!props.loadedStatus && skeleton
-                }
+                {!props.loadedStatus && skeleton}
 
             </div>
         </div>
